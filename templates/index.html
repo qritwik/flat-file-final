@@ -9,17 +9,13 @@
  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300'>
 
+
      <link rel="stylesheet" href="{% static "css/style.css" %}">
 
   </head>
   <body style="background:#eeeeee">
-    <!-- <h2>Upload worksheet</h2>
 
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="myfile">
-    <button type="submit">Upload</button>
-  </form> -->
+
 
   <div class="upload">
  <div class="upload-files">
@@ -31,6 +27,7 @@
    </p>
   </header>
   <div class="body" id="drop">
+
    <i class="fa fa-file-text-o pointer-none" aria-hidden="true"></i>
 
    <p class="pointer-none"><b>Drag and drop</b> files here <br /> or <a href="" id="triggerFile">browse</a> to begin the upload</p>
@@ -46,10 +43,34 @@
     <!--   template   -->
    </div>
 			<button class="importar" type="submit">UPDATE FILES</button>
-      </form>
+
   </footer>
  </div>
+
+
 </div>
+
+<div class="dropdown field">
+    <select name="product_type" class="ui dropdown">
+      <option value="grocery" selected="selected">Grocery</option>
+      <option value="1">Yes</option>
+      <option value="2">Yes</option>
+      <option value="3">Yes</option>
+      <option value="4">Yes</option>
+      <option value="5">Yes</option>
+      <option value="6">Yes</option>
+      <option value="7">Yes</option>
+      <option value="8">Yes</option>
+      <option value="9">Yes</option>
+
+
+</select>
+  </div>
+
+    </form>
+
+
+
 
 <script  src="{% static "js/index.js" %}"></script>
 
