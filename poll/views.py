@@ -28,31 +28,31 @@ def index(request):
     if request.method == "POST" and request.FILES['myfile']:
         filepath = request.FILES['myfile']
         wb=load_workbook(filepath)
-        wb.create_sheet('sid1')
+        wb.create_sheet('newOutput')
 
         input_sheet = wb['Input']
-        output_sheet = wb['sid1']
-        rule_sheet = wb['FF']
+        output_sheet = wb['newOutput']
+        rule_sheet = wb['Rule']
 
-        type1 = request.POST.get('product_type')
-        if(type1 == "grocery"):
-            headers[0] = ""
-            headers[1] = ""
-            headers[2] = ""
-            headers[3] = ""
-            headers[4] = ""
-        elif(type1 == ""):
-            headers[0] = ""
-            headers[1] = ""
-            headers[2] = ""
-            headers[3] = ""
-            headers[4] = ""
-
-
+        # type1 = request.POST.get('product_type')
+        # if(type1 == "grocery"):
+        #     headers[0] = ""
+        #     headers[1] = ""
+        #     headers[2] = ""
+        #     headers[3] = ""
+        #     headers[4] = ""
+        # elif(type1 == ""):
+        #     headers[0] = ""
+        #     headers[1] = ""
+        #     headers[2] = ""
+        #     headers[3] = ""
+        #     headers[4] = ""
 
 
 
-        for row in rule_sheet.iter_rows('A2:D15'):
+
+
+        for row in rule_sheet.iter_rows('A2:D35'):
         	out = row[0].value
         	inp = row[1].value
         	rule = row[2].value
@@ -98,20 +98,20 @@ def index(request):
 
 
 
-            #For Bullet Points --> 4
-        	elif(rule == 4):
-
-        		my_data = inp.split(',')
-
-        		for i in range(3,1000):
-        			for j in my_data:
-
-        				if(input_sheet.cell(row = i, column = col2num(j)).value != None):
-        					fin = ""
-
-        					for a,a1 in zip(my_data,range(0,5)):
-        						fin = fin +" "+headers[a1]+": "+str(input_sheet.cell(row = i, column = col2num(a)).value)+";"
-        					output_sheet.cell(row = i, column = col2num(out)).value = fin
+            # #For Bullet Points --> 4
+        	# elif(rule == 4):
+            #
+        	# 	my_data = inp.split(',')
+            #
+        	# 	for i in range(3,1000):
+        	# 		for j in my_data:
+            #
+        	# 			if(input_sheet.cell(row = i, column = col2num(j)).value != None):
+        	# 				fin = ""
+            #
+        	# 				for a,a1 in zip(my_data,range(0,5)):
+        	# 					fin = fin +" "+headers[a1]+": "+str(input_sheet.cell(row = i, column = col2num(a)).value)+";"
+        	# 				output_sheet.cell(row = i, column = col2num(out)).value = fin
 
 
 
